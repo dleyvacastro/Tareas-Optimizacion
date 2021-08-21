@@ -24,13 +24,22 @@ while true
     Z_j = [c(I_b)]*inv(B)*A(:, I_n);
     C_j_ = C_j-Z_j;
     
+    if any(C_j_ == 0);
+        disp('Nota: El problema tendrá multiples Soluciones, hay ceros en C_j');
+    end;
+    
+    
     if all(C_j_ >= 0); break; end;
     disp('Paso 3: Cambio de base')
     V_candidata = I_n(find(C_j_ == min(C_j_)));
     disp(['x_',num2str(V_candidata), ' entrará a la base.']);
     % Criterio de la razon minima
     Y_k = inv(B)*A(:,V_candidata);
-    a = razon_minima(X_b, Y_k);
+        if all(Y_k <= 0);
+            disp('Nota: El problema no tendrá óptimo finito, en Y_k hay elementos menores o iguales a cero');
+            break;
+        end;
+    a = razon_minima(X_b, Y_k, B, A, I_b, 0);
     r = I_b(a);
     disp(['x_',num2str(r), ' saldra de la base.']);
     
