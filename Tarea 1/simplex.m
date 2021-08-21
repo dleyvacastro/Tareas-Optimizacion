@@ -7,11 +7,13 @@
 
 A = [-1,2,-1,0;1,1,0,1]
 b = [2;6]
+c = [5,-1,0,0]
 
 % A = [-1,2,1,0;-1,1,0,-1]
 % b = [2;3]
 
-fases(A, b)
+[I_b, I_n] = fases(A, b);
+%[x_opt] = iteration(A, b, c, I_b, I_n)
 
 %iteration(A, b, c, I_b, I_n)
 % 
