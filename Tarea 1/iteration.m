@@ -57,7 +57,8 @@ function [x_hat, I_b, I_n] = iteration(A, b, c, I_b, I_n, mode, fase)
         %Parte 3 ---------------
         Y_k = inv(B)*A(:,V_candidata);
         if all(Y_k <= 0)
-            disp('Nota: El problema no tendrá óptimo finito, en Y_k hay elementos menores o iguales a cero');
+            disp('Nota: El problema no tendrá óptimo finito, los elementos de Y_k son menores o iguales a cero');
+            x_hat = 'Óptimo no finito';
             break;
         end
         a = razon_minima(X_b, Y_k, B, A, I_b, 0, mode);
