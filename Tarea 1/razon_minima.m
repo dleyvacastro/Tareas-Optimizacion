@@ -1,14 +1,4 @@
-%function index = razon_minima(X_b, Y_k)
-%    x_k = X_b./Y_k
-%    s = size(x_k)
-%    for i = 1:s(1)
-%        if x_k(i) < 0
-%            x_k(i) = inf
-%        end
-%    end
-%    [mx_k, index] = min(x_k)
-%end
-function index = razon_minima(X_b, Y_k, B, A, IB, n)
+function index = razon_minima(X_b, Y_k, B, A, IB, n, mode)
     s = size(Y_k);
     for i = 1:s(1) % convierte todos los elementos negativos de Y_k en 0 
         if Y_k(i) < 0
@@ -16,6 +6,10 @@ function index = razon_minima(X_b, Y_k, B, A, IB, n)
         end
     end
     x_k = X_b./Y_k; %calcula el arreglo bi/Yik
+    if mode
+        disp('Razon minima: ');
+        disp(x_k);
+    end
     s = size(x_k); 
     index = []; 
     min = inf;
@@ -32,9 +26,22 @@ function index = razon_minima(X_b, Y_k, B, A, IB, n)
         end
     end
     
+    if mode
+        disp('Minimo: ');
+        disp(min);
+    end
+    
+    if mode
+        disp('Indices del minimo en I_n: ');
+        disp(index);
+    end
+    
     s = size(index);
     if s(2) > 1 %verifica si hay varios indices con el mismo minimo, y si 
                 %encuentra hace el metedo para evitar ciclaje 
+        if mode
+            disp('Entra a ciclaje');            
+        end
         n = n + 1;
         s = index(n);
         d = IB(s);

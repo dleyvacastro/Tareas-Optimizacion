@@ -32,7 +32,7 @@ function [b, I_b, I_n] = fases(A, b, mode)
         disp(I_a)
     end
 
-    [x_hat, I_b, I_n] = iteration(A, b, c, I_b, I_n, mode); % Llamado de funcion iteration para metodo simplex Fase I.
+    [x_hat, I_b, I_n] = iteration(A, b, c, I_b, I_n, mode, 0); % Llamado de funcion iteration para metodo simplex Fase I.
 
     % Retiro de variables artificiales de las variables no basicas.
     I_n = setdiff(I_n, I_a);
