@@ -1,6 +1,6 @@
 % Input del problema:
 mode = 1; % 0 - Silencioso 1 - Verbose.
-problem_mode = 0; % 0 - min 1 - max.
+problem_mode = 1; % 0 - min 1 - max.
 
 %Problema 1 óptimo finito 
 % A = [3,4,1,0;3,2,0,1]
@@ -38,9 +38,13 @@ problem_mode = 0; % 0 - min 1 - max.
 % b = [5;1]
 
 %Problema 2 sin solución factible
-A = [3,9,-1,0;1,9,0,1]
-c = [1,2,0,0]
-b = [5;1]
+% A = [3,9,-1,0;1,9,0,1]
+% c = [1,2,0,0]
+% b = [5;1]
+
+A = [1/2,1,1,0,0; 8,8,0,1,0; 0,1,0,0,-1]
+c = [8, 10, 0, 0,0]
+b = [10;120;3]
 
 if problem_mode
     c = -c;

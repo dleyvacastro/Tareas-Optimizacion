@@ -16,8 +16,11 @@ function [t, I_b, I_n] = fases(A, b, mode)
 
     c = [zeros(1,m-n),ones(1,n)]; % Crecion de vector de coeficientes c 
     % Ajuste de variables basicas y no basicas
-    I_b=[m-1,m];
-    I_n = [1:m-2];
+%     I_b=[m-1,m];
+%     I_n = [1:m-2];
+    
+    I_b=[m-n+1:m];
+    I_n = [1:m-n];
 
     if mode
         disp('Fase I')
