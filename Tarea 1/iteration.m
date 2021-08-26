@@ -9,6 +9,10 @@ function [x_hat, I_b, I_n] = iteration(A, b, c, I_b, I_n, mode, fase)
     while true                      % Ciclo responsable de las iteraciones del metodo.
         if mode
             disp('Inicio Iteracion');
+            disp('I_b');
+            disp(I_b);
+            disp('I_n');
+            disp(I_n);
         end
         %Parte 1 ---------------
         B = A(:, I_b);
@@ -58,7 +62,7 @@ function [x_hat, I_b, I_n] = iteration(A, b, c, I_b, I_n, mode, fase)
         Y_k = inv(B)*A(:,V_candidata);
         if all(Y_k <= 0)
             disp('Nota: El problema no tendrá óptimo finito, los elementos de Y_k son menores o iguales a cero');
-            x_hat = 'Óptimo no finito';
+            %x_hat = 'Óptimo no finito';
             break;
         end
         a = razon_minima(X_b, Y_k, B, A, I_b, 0, mode);

@@ -1,4 +1,4 @@
-function [b, I_b, I_n] = fases(A, b, mode)
+function [t, I_b, I_n] = fases(A, b, mode)
     %Input:
     % Matriz A, Lado derecho b, Booleano indicando el modo: 0 - Silencioso 1 - Verbose mode.
     %Output:
@@ -10,6 +10,7 @@ function [b, I_b, I_n] = fases(A, b, mode)
     V_a = eye(n);
     I_a = [m+1:n+m];
     A = [A V_a];
+    t = 1;
 
     [n, m] = size(A);
 
@@ -39,7 +40,7 @@ function [b, I_b, I_n] = fases(A, b, mode)
 
     if any(x_hat(I_a) ~= 0) % Comprobacion del valor de las variables artificiales en la solucion factible.
         disp('No tiene solucion factible: Variables artificiales distintas de cero');
-        b = false; % Variable encargada de detener la ejecucion del programa.
+        t = false; % Variable encargada de detener la ejecucion del programa.
     elseif any(ismember(I_a, I_b)) % Comprobacion de variables artificiales en la base
         % Retiro de variables artificiales de la base
         [I_bn, I_bm] = size(I_b);

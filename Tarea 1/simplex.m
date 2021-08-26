@@ -1,7 +1,8 @@
 function x_opt = simplex(A, b, c, mode)
     % Fase I
-    [b, I_b, I_n] = fases(A, b, mode);
-    if b % En dado caso de que exista solucion factible.
+    [t, I_b, I_n] = fases(A, b, mode);
+    x_opt = "Solución no factible";
+    if t % En dado caso de que exista solucion factible.
         % Fase II
         if mode
             disp('FASE II')

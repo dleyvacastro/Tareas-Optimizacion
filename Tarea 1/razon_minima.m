@@ -46,7 +46,7 @@ function index = razon_minima(X_b, Y_k, B, A, IB, n, mode)
         s = index(n);
         d = IB(s);
         Y_n = inv(B)*A(:,d);
-        index = razon_minima(Y_n, Y_k, B, A, IB, n);
+        index = razon_minima(Y_n, Y_k, B, A, IB, n, mode);
     end
     
     return
