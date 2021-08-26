@@ -32,7 +32,7 @@ function index = razon_minima(X_b, Y_k, B, A, IB, n, mode)
     end
     
     if mode
-        disp('Indices del minimo en I_n: ');
+        disp('Indices del minimo en I_b: ');
         disp(index);
     end
     
