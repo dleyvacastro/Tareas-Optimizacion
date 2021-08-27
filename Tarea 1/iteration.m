@@ -78,7 +78,7 @@ function [x_hat, I_b, I_n] = iteration(A, b, c, I_b, I_n, mode, fase)
         if mode
             disp('Paso 3: Cambio de base');
             disp(['x_',num2str(V_candidata), ' entrará a la base.']);
-            disp(['x_',num2str(r), ' saldra de la base.']);
+            disp(['x_',num2str(r), ' saldrá de la base.']);
         end
         
     end
