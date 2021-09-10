@@ -1,24 +1,30 @@
-function la = seccionaurea(a, b, la, u, p)
+function v = seccionaurea(a, b, la, u, p, i)
 %     p = 0.618;
 %     l = a + (1- p)*(b - a);
 %     u = a + (p)*(b-a);
 
-    
-    if b - a < 0.1
-        disp(la);
-        return
-        disp(1);
+    i
+    a
+    b
+    la
+    u
+    f2(la)
+    f2(u)
+    disp('-------------------------------------')
+    if b - a <= 0.01
+        v = la;
     else
-        if f2(la) > f2(u)
+        if f2(la) >= f2(u)
             a = la;
             la = u;
             u = a + p*(b -a);
-            seccionaurea(a, b, la, u, p);
+            v = seccionaurea(a, b, la, u, p, i + 1);
         else
-            u = la;
             b = u;
+            u = la;
             la = a + (1 - p)*(b - a);
-            seccionaurea(a, b, la, u, p);
+            v = seccionaurea(a, b, la, u, p, i + 1);
         end
     end
+    return 
 end
