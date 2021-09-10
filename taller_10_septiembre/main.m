@@ -1,10 +1,6 @@
-a = -3;
-b = 3;
-p = 0.618;
-la = a + (1- p)*(b - a);
-u = a + (p)*(b-a);
-
-
-y = seccionaurea(a, b, la, u, p, 1);
-
-disp(y);
+disp('Ejercicio 2--------------------------------------')
+disp(aurea(@f2, -3, 3))
+disp('Ejercicio 4--------------------------------------')
+disp(aurea(@f4, -4, 2))
+disp('Ejercicio 6--------------------------------------')
+disp(aurea(@f6, -4, 2))
